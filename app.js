@@ -515,7 +515,16 @@ function initLeadForm() {
     if (spinner) spinner.style.display = 'inline-block';
     if (arrow) arrow.style.display = 'none';
     if (text) text.textContent = 'Отправка...';
-    submitBtn.disabled = true;
+    // Save lead to DB
+    const nameInput = document.getElementById('lead-name');
+    const cityInput = document.getElementById('lead-city');
+    saveLeadToDb({
+      name: nameInput ? nameInput.value.trim() : 'Клиент',
+      phone: phoneInput ? phoneInput.value.trim() : '',
+      email: '',
+      details: cityInput ? cityInput.value.trim() : '',
+      source: 'Форма на главной'
+    });
 
     // Simulate clean, fast server response
     setTimeout(() => {
@@ -667,12 +676,41 @@ function initContactModal() {
       if (spinner) spinner.style.display = 'inline-block';
       if (arrow) arrow.style.display = 'none';
       if (text) text.textContent = 'Отправка...';
-      submitBtn.disabled = true;
+      const nameInput = document.getElementById('modal-lead-name');
+      const emailInput = document.getElementById('modal-lead-email');
+
+      saveLeadToDb({
+        name: nameInput ? nameInput.value.trim() : 'Клиент',
+        phone: phoneInput ? phoneInput.value.trim() : '',
+        email: emailInput ? emailInput.value.trim() : '',
+        details: '',
+        source: 'Модальное окно'
+      });
 
       setTimeout(() => {
         form.style.display = 'none';
         successBox.style.display = 'block';
       }, 600);
     });
+  }
+}
+
+/* ==========================================================================
+   14. LOCAL DATABASE HELPER FOR LEADS
+   ========================================================================== */
+function saveLeadToDb(lead) {
+  try {
+    const STORAGE_KEY = 'dentx_leads_db';
+    const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const newLead = {
+      id: 'L-' + Math.floor(100000 + Math.random() * 900000),
+      date: new Date().toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+      status: 'new',
+      ...lead
+    };
+    existing.unshift(newLead);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+  } catch (e) {
+    console.error('Error saving lead:', e);
   }
 }
