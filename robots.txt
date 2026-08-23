@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /images/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.ico
+Allow: /*.svg
+Disallow: /admin.html
+
+Sitemap: https://dentx-system.ru/sitemap.xml
