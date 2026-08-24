@@ -1307,6 +1307,20 @@
               </div>
             </div>
 
+            <!-- CAPTCHA (Digits only) -->
+            <div class="form-captcha-row">
+              <div class="captcha-box">
+                <div class="captcha-code-display" id="main-captcha-code" title="Проверочный код" aria-label="Проверочный код">----</div>
+                <button type="button" class="captcha-refresh-btn" id="main-captcha-refresh" title="Обновить код" aria-label="Обновить код">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                </button>
+              </div>
+              <div class="captcha-input-wrap">
+                <input type="text" id="main-captcha-input" inputmode="numeric" pattern="[0-9]*" maxlength="4" required placeholder="Введите 4 цифры" class="captcha-input" autocomplete="off">
+                <span class="captcha-error" id="main-captcha-error">Неверный проверочный код</span>
+              </div>
+            </div>
+
             <div class="form-checkbox-row">
               <label class="custom-checkbox-label">
                 <input type="checkbox" name="agree_privacy" id="lead-privacy" required>
@@ -1417,6 +1431,20 @@
         <div class="input-group">
           <label for="modal-lead-phone">Телефон / WhatsApp</label>
           <input type="tel" id="modal-lead-phone" name="phone" required placeholder="+7 (___) ___-__-__">
+        </div>
+
+        <!-- CAPTCHA (Digits only) -->
+        <div class="form-captcha-row modal-captcha-row">
+          <div class="captcha-box">
+            <div class="captcha-code-display" id="modal-captcha-code" title="Проверочный код" aria-label="Проверочный код">----</div>
+            <button type="button" class="captcha-refresh-btn" id="modal-captcha-refresh" title="Обновить код" aria-label="Обновить код">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            </button>
+          </div>
+          <div class="captcha-input-wrap">
+            <input type="text" id="modal-captcha-input" inputmode="numeric" pattern="[0-9]*" maxlength="4" required placeholder="Введите 4 цифры" class="captcha-input" autocomplete="off">
+            <span class="captcha-error" id="modal-captcha-error">Неверный проверочный код</span>
+          </div>
         </div>
 
         <div class="form-checkbox-row">

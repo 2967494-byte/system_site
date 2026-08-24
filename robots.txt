@@ -8,5 +8,8 @@ Allow: /*.jpg
 Allow: /*.ico
 Allow: /*.svg
 Disallow: /admin.html
+Disallow: /crm.html
+Disallow: /dashboard.html
+Disallow: /panel.html
 
 Sitemap: https://dentx-system.ru/sitemap.xml

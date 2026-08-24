@@ -483,6 +483,9 @@ function initLeadForm() {
   const submitBtn = document.getElementById('lead-submit-btn');
   const phoneInput = document.getElementById('lead-phone');
 
+  // Captcha controller
+  const mainCaptcha = initCaptcha('main-captcha-code', 'main-captcha-refresh', 'main-captcha-input', 'main-captcha-error');
+
   // Phone input formatting mask
   if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
@@ -507,6 +510,11 @@ function initLeadForm() {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    // Verify Captcha
+    if (!mainCaptcha.validate()) {
+      return;
+    }
 
     const spinner = submitBtn.querySelector('.btn-spinner');
     const arrow = submitBtn.querySelector('.btn-arrow');
@@ -615,6 +623,7 @@ function initContactModal() {
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    modalCaptcha.reset();
   };
 
   const closeModal = () => {
@@ -644,6 +653,9 @@ function initContactModal() {
     }
   });
 
+  // Captcha controller
+  const modalCaptcha = initCaptcha('modal-captcha-code', 'modal-captcha-refresh', 'modal-captcha-input', 'modal-captcha-error');
+
   // Phone input formatting mask
   if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
@@ -668,6 +680,11 @@ function initContactModal() {
   if (form && successBox && submitBtn) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // Verify Captcha
+      if (!modalCaptcha.validate()) {
+        return;
+      }
 
       const spinner = submitBtn.querySelector('.btn-spinner');
       const arrow = submitBtn.querySelector('.btn-arrow');
@@ -696,7 +713,69 @@ function initContactModal() {
 }
 
 /* ==========================================================================
-   14. LOCAL DATABASE HELPER FOR LEADS
+   14. CAPTCHA HELPERS (DIGITS ONLY)
+   ========================================================================== */
+function generateRandomCaptcha() {
+  return Math.floor(1000 + Math.random() * 9000).toString();
+}
+
+function initCaptcha(codeElementId, refreshBtnId, inputId, errorId) {
+  const codeEl = document.getElementById(codeElementId);
+  const refreshBtn = document.getElementById(refreshBtnId);
+  const inputEl = document.getElementById(inputId);
+  const errorEl = document.getElementById(errorId);
+
+  let currentCode = generateRandomCaptcha();
+
+  function update() {
+    currentCode = generateRandomCaptcha();
+    if (codeEl) codeEl.textContent = currentCode;
+    if (inputEl) {
+      inputEl.value = '';
+      inputEl.classList.remove('has-error');
+    }
+    if (errorEl) errorEl.style.display = 'none';
+  }
+
+  if (codeEl) codeEl.textContent = currentCode;
+
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      update();
+    });
+  }
+
+  if (inputEl) {
+    // Only allow digits
+    inputEl.addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/\D/g, '');
+      if (errorEl) errorEl.style.display = 'none';
+      inputEl.classList.remove('has-error');
+    });
+  }
+
+  return {
+    getCode: () => currentCode,
+    validate: () => {
+      if (!inputEl) return true;
+      const userVal = inputEl.value.trim();
+      if (userVal !== currentCode) {
+        if (errorEl) errorEl.style.display = 'block';
+        inputEl.classList.add('has-error');
+        inputEl.focus();
+        // Generate new code on mismatch
+        update();
+        return false;
+      }
+      return true;
+    },
+    reset: () => update()
+  };
+}
+
+/* ==========================================================================
+   15. LOCAL DATABASE HELPER FOR LEADS
    ========================================================================== */
 function saveLeadToDb(lead) {
   try {
