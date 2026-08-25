@@ -725,7 +725,9 @@ function initCaptcha(codeElementId, refreshBtnId, inputId, errorId) {
   const inputEl = document.getElementById(inputId);
   const errorEl = document.getElementById(errorId);
 
-  let currentCode = generateRandomCaptcha();
+  let currentCode = (codeEl && codeEl.textContent && codeEl.textContent.trim() !== '----' && codeEl.textContent.trim() !== '')
+    ? codeEl.textContent.trim()
+    : generateRandomCaptcha();
 
   function update() {
     currentCode = generateRandomCaptcha();
