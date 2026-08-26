@@ -217,6 +217,9 @@ button, input, textarea {
 
 .top-link {
   color: var(--text-muted);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
   transition: color var(--trans-fast);
 }
 
@@ -225,8 +228,19 @@ button, input, textarea {
   text-decoration: underline;
 }
 
+.top-phone {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.top-phone:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
 .sep {
   color: var(--border-main);
+  user-select: none;
 }
 
 /* Header */
@@ -2647,6 +2661,8 @@ button, input, textarea {
 }
 
 @media (max-width: 600px) {
+  .top-bar-left { display: none; }
+  .top-bar-flex { justify-content: center; }
   .hero-headline { font-size: 1.85rem; }
   .process-scheme-track { grid-template-columns: 1fr; }
   .pcr-grid { grid-template-columns: 1fr; }

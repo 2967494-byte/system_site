@@ -1,0 +1,3 @@
+# Force UTF-8 so browsers don't guess Windows-1251 on Russian locales
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .txt .json
