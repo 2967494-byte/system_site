@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /ru/
+Allow: /en/
 Allow: /images/
 Allow: /*.css
 Allow: /*.js
@@ -12,4 +14,4 @@ Disallow: /crm.html
 Disallow: /dashboard.html
 Disallow: /panel.html
 
-Sitemap: https://dentx-system.ru/sitemap.xml
+Sitemap: https://dentalx-system.ru/sitemap.xml

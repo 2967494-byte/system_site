@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initHeaderShadow();
   initCookieConsent();
+  initAnalyticsTracking();
 });
 
 /* ==========================================================================
@@ -354,7 +355,7 @@ function initRoleTabs() {
 }
 
 /* ==========================================================================
-   8. GALLERY & LIGHTBOX ARCHITECTURE
+   8. GALLERY & LIGHTBOX ARCHITECTURE (DUAL-LANGUAGE & RESPONSIVE)
    ========================================================================== */
 function initGalleryLightbox() {
   const lightbox = document.getElementById('lightbox-modal');
@@ -364,72 +365,95 @@ function initGalleryLightbox() {
 
   if (!lightbox || !display || !caption) return;
 
+  const isEn = document.documentElement.lang === 'en';
+  const path = window.location.pathname;
+  let imgPrefix = 'images/';
+  if (path.includes('/platform/') || path.includes('/imaging/') || path.includes('/for-') || path.includes('/interface/') || path.includes('/about/') || path.includes('/faq/')) {
+    imgPrefix = '../../images/';
+  } else if (path.includes('/en/') || path.includes('/ru/')) {
+    imgPrefix = '../images/';
+  }
+
   const screens = {
     journal_real: {
-      caption: "<strong>Рабочее место центра // Журнал исследований</strong> — оперативный учёт томографии, привязка направлений и кассы в реальном времени.",
+      caption: isEn
+        ? "<strong>Center Workspace // Study Registry</strong> — Real-time CBCT tracking, referral linking, and shift cash balance."
+        : "<strong>Рабочее место центра // Журнал исследований</strong> — оперативный учёт томографии, привязка направлений и кассы в реальном времени.",
       html: `
         <div style="font-family:var(--font-body); color:var(--text-main);">
           <div style="border-bottom:1px solid #DFE2E6; padding-bottom:10px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
             <div>
-              <div style="font-size:0.75rem; color:var(--color-primary); font-weight:700;">ЖУРНАЛ ИССЛЕДОВАНИЙ СМЕНЫ</div>
-              <h3 style="font-family:var(--font-heading); font-size:1.25rem; margin:0;">Оперативный пульт диагностического центра</h3>
+              <div style="font-size:0.75rem; color:var(--color-primary); font-weight:700;">${isEn ? 'DAILY STUDY REGISTRY' : 'ЖУРНАЛ ИССЛЕДОВАНИЙ СМЕНЫ'}</div>
+              <h3 style="font-family:var(--font-heading); font-size:1.25rem; margin:0;">${isEn ? 'Imaging Center Operation Console' : 'Оперативный пульт диагностического центра'}</h3>
             </div>
-            <span style="background:#E8F7F0; color:#0A8F54; font-size:0.75rem; font-weight:700; padding:4px 8px; border-radius:3px;">Томограф Онлайн</span>
+            <span style="background:#E8F7F0; color:#0A8F54; font-size:0.75rem; font-weight:700; padding:4px 8px; border-radius:3px;">${isEn ? 'Tomograph Online' : 'Томограф Онлайн'}</span>
           </div>
           <div style="margin-bottom:14px; border:1px solid #DFE2E6; border-radius:4px; overflow:hidden;">
-            <img src="images/kassa.png" alt="Журнал исследований" style="width:100%; height:auto; display:block;">
+            <img src="${imgPrefix}kassa.png" alt="Study Registry" style="width:100%; height:auto; display:block;">
           </div>
           <div style="font-size:0.8125rem; color:var(--text-muted); line-height:1.5;">
-            Все филиалы («Север», «Центр», «Юг», «Запад»), проведённые процедуры, привязка врачей-направителей и кассовая сводка за смену в едином окне.
+            ${isEn ? 'All branches, scanned procedures, referring doctors, and daily financial cash balance in a unified view.' : 'Все филиалы («Север», «Центр», «Юг», «Запад»), проведённые процедуры, привязка врачей-направителей и кассовая сводка за смену в едином окне.'}
           </div>
         </div>
       `
     },
     patient_card: {
-      caption: "<strong>Вся история пациента в одном месте</strong> — без поиска по журналам и разрозненным таблицам.",
+      caption: isEn
+        ? "<strong>Complete patient history in one place</strong> — no searching across paper logs or detached spreadsheets."
+        : "<strong>Вся история пациента в одном месте</strong> — без поиска по журналам и разрозненным таблицам.",
       html: `
         <div style="font-family:var(--font-body); color:var(--text-main); text-align:center;">
-          <img src="images/patient.png" alt="Карточка пациента" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+          <img src="${imgPrefix}patient.png" alt="Patient Card" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
         </div>
       `
     },
     viewer_3d: {
-      caption: "<strong>Направляющий врач открывает исследование непосредственно через браузер</strong> без установки стороннего ПО.",
+      caption: isEn
+        ? "<strong>Referring dentist opens volumetric data directly in browser</strong> with zero software installation."
+        : "<strong>Направляющий врач открывает исследование непосредственно через браузер</strong> без установки стороннего ПО.",
       html: `
         <div style="font-family:var(--font-body); color:var(--text-main); text-align:center;">
-          <img src="images/3dview.png" alt="2D / 3D Веб-просмотр томограмм" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+          <img src="${imgPrefix}3dview.png" alt="2D / 3D Web Viewer" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
         </div>
       `
     },
     panorama_editor: {
-      caption: "<strong>Редактор панорам</strong> — индивидуальная подгонка зубочелюстной дуги ОПТГ доступна онлайн всем пользователям прямо в браузере.",
+      caption: isEn
+        ? "<strong>Panoramic Curve Editor</strong> — custom dental arch adjustment directly in the web browser."
+        : "<strong>Редактор панорам</strong> — индивидуальная подгонка зубочелюстной дуги ОПТГ доступна онлайн всем пользователям прямо в браузере.",
       html: `
         <div style="font-family:var(--font-body); color:var(--text-main); text-align:center;">
-          <img src="images/panorama.png" alt="Редактор панорам ОПТГ" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+          <img src="${imgPrefix}panorama.png" alt="Panoramic Reconstruction" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
         </div>
       `
     },
     finance_report: {
-      caption: "<strong>Финансовый учёт и аналитика</strong> — данные для отчётности формируются автоматически из операций, которые сотрудники уже выполняют.",
+      caption: isEn
+        ? "<strong>Financial analytics & revenue</strong> — reports generated automatically from real clinical workflow operations."
+        : "<strong>Финансовый учёт и аналитика</strong> — данные для отчётности формируются автоматически из операций, которые сотрудники уже выполняют.",
       html: `
         <div style="font-family:var(--font-body); color:var(--text-main); text-align:center;">
-          <img src="images/finance.png" alt="Финансовая аналитика и отчётность" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+          <img src="${imgPrefix}finance.png" alt="Financial Analytics" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
         </div>
       `
     },
     dentist_portal: {
-      caption: "<strong>Личный кабинет врача (Стоматологи, Ортодонты, ЛОР)</strong> — быстрый доступ к томограммам челюстей, ВНЧС, ТРГ и пазух носа в один клик без установки ПО.",
+      caption: isEn
+        ? "<strong>Referring Doctor Portal</strong> — instant 1-click access to jaws, TMJ, Ceph, and sinus scans."
+        : "<strong>Личный кабинет врача (Стоматологи, Ортодонты, ЛОР)</strong> — быстрый доступ к томограммам челюстей, ВНЧС, ТРГ и пазух носа в один клик без установки ПО.",
       html: `
         <div style="font-family:var(--font-body); color:var(--text-main); text-align:center;">
-          <img src="images/doctor.png" alt="Личный кабинет врача" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+          <img src="${imgPrefix}doctor.png" alt="Referring Doctor Portal" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
         </div>
       `
     },
     calendar_schedule: {
-      caption: "<strong>Интерактивный календарь записи</strong> — наглядное расписание с цветовой дифференциацией по ролям и автоматической подсветкой опозданий и неявок.",
+      caption: isEn
+        ? "<strong>Interactive Appointment Schedule</strong> — visual role-differentiated booking with automated no-show tracking."
+        : "<strong>Интерактивный календарь записи</strong> — наглядное расписание с цветовой дифференциацией по ролям и автоматической подсветкой опозданий и неявок.",
       html: `
         <div style="font-family:var(--font-body); color:var(--text-main); text-align:center;">
-          <img src="images/calend.png" alt="Интерактивный календарь записи" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+          <img src="${imgPrefix}calend.png" alt="Interactive Calendar" style="max-width:100%; height:auto; display:block; margin:0 auto; border-radius:4px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
         </div>
       `
     }
@@ -444,6 +468,7 @@ function initGalleryLightbox() {
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    trackEvent('interface_image_open', { image_key: key });
   };
 
   const closeLightbox = () => {
@@ -452,7 +477,6 @@ function initGalleryLightbox() {
     document.body.style.overflow = '';
   };
 
-  // Attach to both gallery cards and interactive buttons
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-screen]');
     if (trigger) {
@@ -475,71 +499,93 @@ function initGalleryLightbox() {
 }
 
 /* ==========================================================================
-   9. LEAD FORM WITH REAL-TIME MASK & LOADING SPINNER
+   9. COMPREHENSIVE B2B LEAD FORM HANDLER
    ========================================================================== */
 function initLeadForm() {
-  const form = document.getElementById('main-lead-form');
-  const successBox = document.getElementById('form-success');
-  const submitBtn = document.getElementById('lead-submit-btn');
-  const phoneInput = document.getElementById('lead-phone');
+  document.querySelectorAll('form[data-lead-form]').forEach(form => {
+    const successBox = form.parentElement.querySelector('.form-success-box') || document.getElementById('form-success');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const phoneInput = form.querySelector('input[type="tel"]');
 
-  // Captcha controller
-  const mainCaptcha = initCaptcha('main-captcha-code', 'main-captcha-refresh', 'main-captcha-input', 'main-captcha-error');
-
-  // Phone input formatting mask
-  if (phoneInput) {
-    phoneInput.addEventListener('input', (e) => {
-      let val = e.target.value.replace(/\D/g, '');
-      if (!val) {
-        e.target.value = '';
-        return;
-      }
-      if (val[0] === '7' || val[0] === '8') val = val.substring(1);
-      
-      let formatted = '+7 (';
-      if (val.length > 0) formatted += val.substring(0, 3);
-      if (val.length >= 3) formatted += ') ' + val.substring(3, 6);
-      if (val.length >= 6) formatted += '-' + val.substring(6, 8);
-      if (val.length >= 8) formatted += '-' + val.substring(8, 10);
-      
-      e.target.value = formatted;
-    });
-  }
-
-  if (!form || !successBox || !submitBtn) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Verify Captcha
-    if (!mainCaptcha.validate()) {
-      return;
+    // Phone format helper
+    if (phoneInput) {
+      phoneInput.addEventListener('input', (e) => {
+        let val = e.target.value.replace(/\D/g, '');
+        if (!val) {
+          e.target.value = '';
+          return;
+        }
+        if (val[0] === '7' || val[0] === '8') {
+          val = val.substring(1);
+          let formatted = '+7 (';
+          if (val.length > 0) formatted += val.substring(0, 3);
+          if (val.length >= 3) formatted += ') ' + val.substring(3, 6);
+          if (val.length >= 6) formatted += '-' + val.substring(6, 8);
+          if (val.length >= 8) formatted += '-' + val.substring(8, 10);
+          e.target.value = formatted;
+        }
+      });
     }
 
-    const spinner = submitBtn.querySelector('.btn-spinner');
-    const arrow = submitBtn.querySelector('.btn-arrow');
-    const text = submitBtn.querySelector('.btn-text');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-    if (spinner) spinner.style.display = 'inline-block';
-    if (arrow) arrow.style.display = 'none';
-    if (text) text.textContent = 'Отправка...';
-    // Save lead to DB
-    const nameInput = document.getElementById('lead-name');
-    const cityInput = document.getElementById('lead-city');
-    saveLeadToDb({
-      name: nameInput ? nameInput.value.trim() : 'Клиент',
-      phone: phoneInput ? phoneInput.value.trim() : '',
-      email: '',
-      details: cityInput ? cityInput.value.trim() : '',
-      source: 'Форма на главной'
+      // Check Honeypot spam field
+      const hp = form.querySelector('input[name="hp_check"], input[name="website"]');
+      if (hp && hp.value.trim() !== '') {
+        // Silently drop spam submission
+        form.style.display = 'none';
+        if (successBox) successBox.style.display = 'block';
+        return;
+      }
+
+      const isEn = document.documentElement.lang === 'en';
+      const name = (form.querySelector('input[name="name"]') || {}).value || '';
+      const company = (form.querySelector('input[name="company"]') || {}).value || '';
+      const city = (form.querySelector('input[name="city"]') || {}).value || '';
+      const centers = (form.querySelector('input[name="centers"], select[name="centers"]') || {}).value || '';
+      const phone = (form.querySelector('input[name="phone"]') || {}).value || '';
+      const email = (form.querySelector('input[name="email"]') || {}).value || '';
+      const message = (form.querySelector('textarea[name="message"], input[name="details"]') || {}).value || '';
+
+      const spinner = submitBtn ? submitBtn.querySelector('.btn-spinner') : null;
+      const arrow = submitBtn ? submitBtn.querySelector('.btn-arrow') : null;
+      const text = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+
+      if (spinner) spinner.style.display = 'inline-block';
+      if (arrow) arrow.style.display = 'none';
+      if (text) text.textContent = isEn ? 'Sending...' : 'Отправка...';
+
+      // Assemble summary details string for CRM compatibility
+      const detailsArray = [];
+      if (company) detailsArray.push(company);
+      if (city) detailsArray.push(city);
+      if (centers) detailsArray.push(`${centers} ${isEn ? 'centers' : 'центров'}`);
+      if (message) detailsArray.push(message);
+
+      saveLeadToDb({
+        name: name.trim() || (isEn ? 'Client' : 'Клиент'),
+        company: company.trim(),
+        city: city.trim(),
+        centers: centers.trim(),
+        phone: phone.trim(),
+        email: email.trim(),
+        message: message.trim(),
+        details: detailsArray.join(' | '),
+        lang: isEn ? 'EN' : 'RU',
+        source: form.getAttribute('data-source') || (isEn ? 'Homepage B2B Form' : 'Форма на главной')
+      });
+
+      trackEvent('demo_form_submit', { lang: isEn ? 'EN' : 'RU', form_type: 'inline' });
+
+      setTimeout(() => {
+        form.style.display = 'none';
+        if (successBox) {
+          successBox.style.display = 'block';
+          successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }, 500);
     });
-
-    // Simulate clean, fast server response
-    setTimeout(() => {
-      form.style.display = 'none';
-      successBox.style.display = 'block';
-      successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 600);
   });
 }
 
@@ -607,7 +653,7 @@ function initCookieConsent() {
 }
 
 /* ==========================================================================
-   13. CONTACT MODAL DIALOG (Имя, Почта, Телефон)
+   13. B2B DEMO / CONTACT MODAL DIALOG
    ========================================================================== */
 function initContactModal() {
   const modal = document.getElementById('contact-modal');
@@ -615,7 +661,6 @@ function initContactModal() {
   const form = document.getElementById('modal-lead-form');
   const successBox = document.getElementById('modal-form-success');
   const submitBtn = document.getElementById('modal-submit-btn');
-  const phoneInput = document.getElementById('modal-lead-phone');
 
   if (!modal) return;
 
@@ -623,7 +668,7 @@ function initContactModal() {
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    modalCaptcha.reset();
+    trackEvent('demo_form_open');
   };
 
   const closeModal = () => {
@@ -634,9 +679,10 @@ function initContactModal() {
 
   // Open triggers
   document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.open-contact-modal-btn');
+    const btn = e.target.closest('.open-contact-modal-btn, .open-demo-modal-btn');
     if (btn) {
       e.preventDefault();
+      trackEvent('demo_click', { button_text: btn.innerText.trim() });
       openModal();
     }
   });
@@ -653,38 +699,27 @@ function initContactModal() {
     }
   });
 
-  // Captcha controller
-  const modalCaptcha = initCaptcha('modal-captcha-code', 'modal-captcha-refresh', 'modal-captcha-input', 'modal-captcha-error');
-
-  // Phone input formatting mask
-  if (phoneInput) {
-    phoneInput.addEventListener('input', (e) => {
-      let val = e.target.value.replace(/\D/g, '');
-      if (!val) {
-        e.target.value = '';
-        return;
-      }
-      if (val[0] === '7' || val[0] === '8') val = val.substring(1);
-      
-      let formatted = '+7 (';
-      if (val.length > 0) formatted += val.substring(0, 3);
-      if (val.length >= 3) formatted += ') ' + val.substring(3, 6);
-      if (val.length >= 6) formatted += '-' + val.substring(6, 8);
-      if (val.length >= 8) formatted += '-' + val.substring(8, 10);
-      
-      e.target.value = formatted;
-    });
-  }
-
   // Modal form submit
   if (form && successBox && submitBtn) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Verify Captcha
-      if (!modalCaptcha.validate()) {
+      // Honeypot check
+      const hp = form.querySelector('input[name="hp_check"], input[name="website"]');
+      if (hp && hp.value.trim() !== '') {
+        form.style.display = 'none';
+        successBox.style.display = 'block';
         return;
       }
+
+      const isEn = document.documentElement.lang === 'en';
+      const name = (form.querySelector('input[name="name"]') || {}).value || '';
+      const company = (form.querySelector('input[name="company"]') || {}).value || '';
+      const city = (form.querySelector('input[name="city"]') || {}).value || '';
+      const centers = (form.querySelector('input[name="centers"], select[name="centers"]') || {}).value || '';
+      const phone = (form.querySelector('input[name="phone"]') || {}).value || '';
+      const email = (form.querySelector('input[name="email"]') || {}).value || '';
+      const message = (form.querySelector('textarea[name="message"]') || {}).value || '';
 
       const spinner = submitBtn.querySelector('.btn-spinner');
       const arrow = submitBtn.querySelector('.btn-arrow');
@@ -692,106 +727,114 @@ function initContactModal() {
 
       if (spinner) spinner.style.display = 'inline-block';
       if (arrow) arrow.style.display = 'none';
-      if (text) text.textContent = 'Отправка...';
-      const nameInput = document.getElementById('modal-lead-name');
-      const emailInput = document.getElementById('modal-lead-email');
+      if (text) text.textContent = isEn ? 'Sending...' : 'Отправка...';
+
+      const detailsArray = [];
+      if (company) detailsArray.push(company);
+      if (city) detailsArray.push(city);
+      if (centers) detailsArray.push(`${centers} ${isEn ? 'centers' : 'центров'}`);
+      if (message) detailsArray.push(message);
 
       saveLeadToDb({
-        name: nameInput ? nameInput.value.trim() : 'Клиент',
-        phone: phoneInput ? phoneInput.value.trim() : '',
-        email: emailInput ? emailInput.value.trim() : '',
-        details: '',
-        source: 'Модальное окно'
+        name: name.trim() || (isEn ? 'Client' : 'Клиент'),
+        company: company.trim(),
+        city: city.trim(),
+        centers: centers.trim(),
+        phone: phone.trim(),
+        email: email.trim(),
+        message: message.trim(),
+        details: detailsArray.join(' | '),
+        lang: isEn ? 'EN' : 'RU',
+        source: isEn ? 'Modal Request Demo' : 'Модальное окно Демо'
       });
+
+      trackEvent('demo_form_submit', { lang: isEn ? 'EN' : 'RU', form_type: 'modal' });
 
       setTimeout(() => {
         form.style.display = 'none';
         successBox.style.display = 'block';
-      }, 600);
+      }, 500);
     });
   }
 }
 
 /* ==========================================================================
-   14. CAPTCHA HELPERS (DIGITS ONLY)
-   ========================================================================== */
-function generateRandomCaptcha() {
-  return Math.floor(1000 + Math.random() * 9000).toString();
-}
-
-function initCaptcha(codeElementId, refreshBtnId, inputId, errorId) {
-  const codeEl = document.getElementById(codeElementId);
-  const refreshBtn = document.getElementById(refreshBtnId);
-  const inputEl = document.getElementById(inputId);
-  const errorEl = document.getElementById(errorId);
-
-  let currentCode = (codeEl && codeEl.textContent && codeEl.textContent.trim() !== '----' && codeEl.textContent.trim() !== '')
-    ? codeEl.textContent.trim()
-    : generateRandomCaptcha();
-
-  function update() {
-    currentCode = generateRandomCaptcha();
-    if (codeEl) codeEl.textContent = currentCode;
-    if (inputEl) {
-      inputEl.value = '';
-      inputEl.classList.remove('has-error');
-    }
-    if (errorEl) errorEl.style.display = 'none';
-  }
-
-  if (codeEl) codeEl.textContent = currentCode;
-
-  if (refreshBtn) {
-    refreshBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      update();
-    });
-  }
-
-  if (inputEl) {
-    // Only allow digits
-    inputEl.addEventListener('input', (e) => {
-      e.target.value = e.target.value.replace(/\D/g, '');
-      if (errorEl) errorEl.style.display = 'none';
-      inputEl.classList.remove('has-error');
-    });
-  }
-
-  return {
-    getCode: () => currentCode,
-    validate: () => {
-      if (!inputEl) return true;
-      const userVal = inputEl.value.trim();
-      if (userVal !== currentCode) {
-        if (errorEl) errorEl.style.display = 'block';
-        inputEl.classList.add('has-error');
-        inputEl.focus();
-        // Generate new code on mismatch
-        update();
-        return false;
-      }
-      return true;
-    },
-    reset: () => update()
-  };
-}
-
-/* ==========================================================================
-   15. LOCAL DATABASE HELPER FOR LEADS
+   14. LOCAL DATABASE HELPER FOR LEADS
    ========================================================================== */
 function saveLeadToDb(lead) {
   try {
     const STORAGE_KEY = 'dentx_leads_db';
     const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const isEn = (lead.lang === 'EN');
     const newLead = {
       id: 'L-' + Math.floor(100000 + Math.random() * 900000),
-      date: new Date().toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+      date: new Date().toLocaleString(isEn ? 'en-US' : 'ru-RU', {
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      }),
       status: 'new',
       ...lead
     };
     existing.unshift(newLead);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+    console.log('[DentX CRM] Lead saved:', newLead);
   } catch (e) {
-    console.error('Error saving lead:', e);
+    console.error('Error saving lead to database:', e);
   }
 }
+
+/* ==========================================================================
+   15. PRODUCT ANALYTICS & TELEMETRY TRACKER
+   ========================================================================== */
+function trackEvent(eventName, eventParams = {}) {
+  try {
+    if (typeof ym === 'function') {
+      ym(111880491, 'reachGoal', eventName, eventParams);
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...eventParams });
+    console.log('[DentX Analytics]', eventName, eventParams);
+  } catch (err) {
+    console.warn('[Analytics Error]', err);
+  }
+}
+
+function initAnalyticsTracking() {
+  // 1. Phone and email click triggers
+  document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => trackEvent('phone_click', { href: link.getAttribute('href') }));
+  });
+
+  document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', () => trackEvent('email_click', { href: link.getAttribute('href') }));
+  });
+
+  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(link => {
+    link.addEventListener('click', () => trackEvent('whatsapp_click', { href: link.getAttribute('href') }));
+  });
+
+  // 2. Language switcher clicks
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetLang = btn.innerText.trim();
+      trackEvent('language_switch', { target_lang: targetLang });
+    });
+  });
+
+  // 3. Viewer section intersection trigger
+  const viewerSection = document.getElementById('viewer') || document.querySelector('.showcase-feature-block');
+  if (viewerSection) {
+    let triggered = false;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !triggered) {
+          triggered = true;
+          trackEvent('viewer_section_view');
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(viewerSection);
+  }
+}
+
