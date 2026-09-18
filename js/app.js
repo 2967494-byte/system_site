@@ -366,13 +366,7 @@ function initGalleryLightbox() {
   if (!lightbox || !display || !caption) return;
 
   const isEn = document.documentElement.lang === 'en';
-  const path = window.location.pathname;
-  let imgPrefix = 'images/';
-  if (path.includes('/platform/') || path.includes('/imaging/') || path.includes('/for-') || path.includes('/interface/') || path.includes('/about/') || path.includes('/faq/')) {
-    imgPrefix = '../../images/';
-  } else if (path.includes('/en/') || path.includes('/ru/')) {
-    imgPrefix = '../images/';
-  }
+  const imgPrefix = 'images/';
 
   const screens = {
     journal_real: {

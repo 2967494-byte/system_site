@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О системе DentX — Авторский подход и внедрение</title>
+  <meta name="description" content="История создания, архитектура и принципы разработки платформы DentX. Прямой контакт с автором системы и запуск за 1–3 дня.">
+  <link rel="canonical" href="https://dentalx-system.ru/about.html">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+</head>
+<body class="product-body">
+  <div class="product-top-bar">
+    <div class="container-main top-bar-flex">
+      <div class="top-bar-left">
+        <span class="system-indicator pulse"></span>
+        <span>DentX Medical Software • About & Engineering</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="lang-switcher">
+          <a href="about.html" class="lang-btn active">RU</a>
+          <a href="en.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="product-header">
+    <div class="container-main header-inner">
+      <a href="index.html" class="brand-link">
+        <img src="images/logo-white.png" alt="DentX System" class="site-logo">
+      </a>
+      <nav class="main-nav-bar">
+        <ul class="nav-links-list">
+          <li><a href="index.html" class="menu-link">Главная</a></li>
+          <li><a href="imaging.html" class="menu-link">DICOM / 2D/3D</a></li>
+          <li><a href="for-doctors.html" class="menu-link">Врачам</a></li>
+          <li><a href="for-centers.html" class="menu-link">Руководителю</a></li>
+          <li><a href="interface.html" class="menu-link">Интерфейс</a></li>
+          <li><a href="about.html" class="menu-link" style="color:#38BDF8;">О системе</a></li>
+          <li><a href="faq.html" class="menu-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="header-action-group">
+        <button type="button" class="btn-primary-demo open-demo-modal-btn">Запросить демо</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="subpage-hero-banner">
+      <div class="container-main">
+        <a href="index.html" class="subpage-back-link">← Вернуться на главную</a>
+        <h1>О системе и создателе DentX</h1>
+        <p>Система создаётся специалистом, который сам ежедневно работает с рентген-диагностическими аппаратами, понимает медицинские стандарты и лично сопровождает внедрение каждого центра.</p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="container-main">
+        <div class="author-split-grid">
+          <div class="author-card-box">
+            <div class="author-badge">Прямое внедрение</div>
+            <h3>Без дистрибьюторов и посредников</h3>
+            <p class="author-text">«Я разработал DentX как систему для реальной работы центров дентальной томографии и продолжаю лично развивать продукт. В процессе разработки я занимался архитектурой медицинских изображений, интеграцией DICOM, хранилищем срезов, веб-визуализацией 3D и автоматизацией операционных процессов центров».</p>
+            <div class="author-cta">
+              <button type="button" class="btn-primary-demo open-demo-modal-btn">Связаться с разработчиком</button>
+            </div>
+          </div>
+
+          <div class="philosophy-content">
+            <div class="section-tag">Инженерный подход</div>
+            <h2 class="philosophy-quote">«Программа должна работать за человека, а не заставлять человека работать на неё».</h2>
+            <p class="philosophy-desc">Если снимок уже получен томографом — он должен автоматически привязаться к пациенту. Если пациент записан — администратор не должен вводить его данные второй раз. Мы не верим в тяжеловесные системы, требующие месяцев обучения персонала.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="product-footer">
+    <div class="container-main footer-bottom-row">
+      <div>&copy; 2026 DentX System. Все права защищены.</div>
+      <div><a href="index.html" class="legal-link">Главная</a> • <a href="faq.html" class="legal-link">FAQ</a></div>
+    </div>
+  </footer>
+
+  <!-- Contact Modal -->
+  <div class="contact-modal-overlay" id="contact-modal" aria-hidden="true">
+    <div class="contact-modal-box">
+      <button type="button" class="contact-modal-close" id="contact-modal-close-btn">×</button>
+      <div class="contact-modal-header">
+        <h3>Связаться с автором DentX</h3>
+        <p>Ответим на технические вопросы и поможем организовать демо.</p>
+      </div>
+      <form class="contact-modal-form" id="modal-lead-form" data-lead-form data-source="Страница О системе">
+        <input type="text" name="hp_check" class="honeypot-field" tabindex="-1">
+        <div class="b2b-form-grid-2">
+          <div class="input-group">
+            <label>Имя *</label>
+            <input type="text" name="name" required placeholder="Ваше имя">
+          </div>
+          <div class="input-group">
+            <label>Организация *</label>
+            <input type="text" name="company" required placeholder="Название центра">
+          </div>
+        </div>
+        <div class="b2b-form-grid-2" style="margin-top:12px;">
+          <div class="input-group">
+            <label>Город *</label>
+            <input type="text" name="city" required placeholder="Город">
+          </div>
+          <div class="input-group">
+            <label>Телефон *</label>
+            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__">
+          </div>
+        </div>
+        <div class="input-group" style="margin-top:12px;">
+          <label>Email *</label>
+          <input type="email" name="email" required placeholder="email@domain.ru">
+        </div>
+        <div class="modal-submit-row" style="margin-top:16px;">
+          <button type="submit" class="btn-primary-demo" id="modal-submit-btn" style="width:100%; justify-content:center;">Отправить сообщение</button>
+        </div>
+      </form>
+      <div class="form-success-box" id="modal-form-success" style="display:none; text-align:center; padding:20px;">
+        <h3 style="color:#FFFFFF;">Сообщение отправлено!</h3>
+        <p style="color:#94A3B8;">Мы свяжемся с вами в ближайшее время.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=5.0"></script>
+</body>
+</html>

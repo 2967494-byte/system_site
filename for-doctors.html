@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет направляющего врача — DentX</title>
+  <meta name="description" content="Удобный веб-сервис для стоматологов, хирургов, ортодонтов и ЛОР: мгновенный доступ к 2D/3D срезам КЛКТ, официальным заключениям и электронным направлениям.">
+  <link rel="canonical" href="https://dentalx-system.ru/for-doctors.html">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+</head>
+<body class="product-body">
+  <div class="product-top-bar">
+    <div class="container-main top-bar-flex">
+      <div class="top-bar-left">
+        <span class="system-indicator pulse"></span>
+        <span>DentX Medical Software • Referring Doctor Portal</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="lang-switcher">
+          <a href="for-doctors.html" class="lang-btn active">RU</a>
+          <a href="en.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="product-header">
+    <div class="container-main header-inner">
+      <a href="index.html" class="brand-link">
+        <img src="images/logo-white.png" alt="DentX System" class="site-logo">
+      </a>
+      <nav class="main-nav-bar">
+        <ul class="nav-links-list">
+          <li><a href="index.html" class="menu-link">Главная</a></li>
+          <li><a href="imaging.html" class="menu-link">DICOM / 2D/3D</a></li>
+          <li><a href="for-doctors.html" class="menu-link" style="color:#38BDF8;">Врачам</a></li>
+          <li><a href="for-centers.html" class="menu-link">Руководителю</a></li>
+          <li><a href="interface.html" class="menu-link">Интерфейс</a></li>
+          <li><a href="faq.html" class="menu-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="header-action-group">
+        <button type="button" class="btn-primary-demo open-demo-modal-btn">Запросить демо</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="subpage-hero-banner">
+      <div class="container-main">
+        <a href="index.html" class="subpage-back-link">← Вернуться на главную</a>
+        <h1>Личный кабинет направляющего врача</h1>
+        <p>Современный цифровой стандарт взаимодействия с диагностическим центром: снимки пациентов открываются в браузере в один клик без флешек и сторонних программ.</p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="container-main">
+        <div class="showcase-split-row">
+          <div class="showcase-text-col">
+            <div class="section-tag">Zero Installation</div>
+            <h2>Просмотр КЛКТ на приёме без ожидания</h2>
+            <p class="showcase-lead">Стоматолог открывает исследование прямо во время консультации с пациентом. Никаких многогигабайтных архивов и несовместимости операционных систем.</p>
+            <ul class="showcase-checklist">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Работает везде:</strong> Windows, macOS, iPad или смартфон врача.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Полный архив:</strong> все пациенты, направленные из вашей клиники, в одном списке.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Протокол рентгенолога:</strong> официальное заключение всегда прикреплено к снимку.</span>
+              </li>
+            </ul>
+            <button type="button" class="btn-primary-demo open-demo-modal-btn">Подключить врачей к системе</button>
+          </div>
+
+          <div class="showcase-image-col">
+            <div class="showcase-screen-frame open-lightbox-btn" data-screen="dentist_portal">
+              <img src="images/doctor.png" alt="Личный кабинет врача DentX">
+              <div class="showcase-caption-bar">
+                <span>Кабинет доктора: список направлений и быстрый запуск 3D</span>
+                <strong>Кликните для увеличения</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="product-footer">
+    <div class="container-main footer-bottom-row">
+      <div>&copy; 2026 DentX System. Все права защищены.</div>
+      <div><a href="index.html" class="legal-link">Главная</a> • <a href="faq.html" class="legal-link">FAQ</a></div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox-modal" aria-hidden="true">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightbox-close-btn">×</button>
+      <div class="lightbox-inner" id="lightbox-display"></div>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="contact-modal-overlay" id="contact-modal" aria-hidden="true">
+    <div class="contact-modal-box">
+      <button type="button" class="contact-modal-close" id="contact-modal-close-btn">×</button>
+      <div class="contact-modal-header">
+        <h3>Подключить клинику к DentX</h3>
+        <p>Покажем кабинет врача и организуем тестовый доступ.</p>
+      </div>
+      <form class="contact-modal-form" id="modal-lead-form" data-lead-form data-source="Страница Врачам">
+        <input type="text" name="hp_check" class="honeypot-field" tabindex="-1">
+        <div class="b2b-form-grid-2">
+          <div class="input-group">
+            <label>Имя *</label>
+            <input type="text" name="name" required placeholder="Дмитрий">
+          </div>
+          <div class="input-group">
+            <label>Клиника / Центр *</label>
+            <input type="text" name="company" required placeholder="Стоматологическая клиника">
+          </div>
+        </div>
+        <div class="b2b-form-grid-2" style="margin-top:12px;">
+          <div class="input-group">
+            <label>Город *</label>
+            <input type="text" name="city" required placeholder="Санкт-Петербург">
+          </div>
+          <div class="input-group">
+            <label>Телефон / WhatsApp *</label>
+            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__">
+          </div>
+        </div>
+        <div class="input-group" style="margin-top:12px;">
+          <label>Email *</label>
+          <input type="email" name="email" required placeholder="doctor@clinic.ru">
+        </div>
+        <div class="modal-submit-row" style="margin-top:16px;">
+          <button type="submit" class="btn-primary-demo" id="modal-submit-btn" style="width:100%; justify-content:center;">Запросить доступ</button>
+        </div>
+      </form>
+      <div class="form-success-box" id="modal-form-success" style="display:none; text-align:center; padding:20px;">
+        <h3 style="color:#FFFFFF;">Заявка принята!</h3>
+        <p style="color:#94A3B8;">Мы свяжемся с вами в ближайшее время.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=5.0"></script>
+</body>
+</html>

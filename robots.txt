@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
-Allow: /ru/
-Allow: /en/
 Allow: /images/
+Allow: /css/
+Allow: /js/
 Allow: /*.css
 Allow: /*.js
 Allow: /*.png

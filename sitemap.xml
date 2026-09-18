@@ -1,153 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- Russian Main Page -->
   <url>
     <loc>https://dentalx-system.ru/</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en.html"/>
   </url>
-
-  <!-- English Main Page -->
   <url>
-    <loc>https://dentalx-system.ru/en/</loc>
+    <loc>https://dentalx-system.ru/en.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en.html"/>
   </url>
-
-  <!-- Platform -->
   <url>
-    <loc>https://dentalx-system.ru/ru/platform/</loc>
+    <loc>https://dentalx-system.ru/platform.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/platform/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/platform/"/>
   </url>
   <url>
-    <loc>https://dentalx-system.ru/en/platform/</loc>
+    <loc>https://dentalx-system.ru/imaging.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/platform/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/platform/"/>
   </url>
-
-  <!-- Imaging / DICOM / 3D Viewer -->
   <url>
-    <loc>https://dentalx-system.ru/ru/imaging/</loc>
+    <loc>https://dentalx-system.ru/for-doctors.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/imaging/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/imaging/"/>
   </url>
   <url>
-    <loc>https://dentalx-system.ru/en/imaging/</loc>
+    <loc>https://dentalx-system.ru/for-centers.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/imaging/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/imaging/"/>
   </url>
-
-  <!-- For Referring Doctors -->
   <url>
-    <loc>https://dentalx-system.ru/ru/for-doctors/</loc>
+    <loc>https://dentalx-system.ru/interface.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/for-doctors/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/for-referring-doctors/"/>
   </url>
   <url>
-    <loc>https://dentalx-system.ru/en/for-referring-doctors/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/for-doctors/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/for-referring-doctors/"/>
-  </url>
-
-  <!-- For Centers / Directors -->
-  <url>
-    <loc>https://dentalx-system.ru/ru/for-centers/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/for-centers/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/for-imaging-centers/"/>
-  </url>
-  <url>
-    <loc>https://dentalx-system.ru/en/for-imaging-centers/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/for-centers/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/for-imaging-centers/"/>
-  </url>
-
-  <!-- Interface -->
-  <url>
-    <loc>https://dentalx-system.ru/ru/interface/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/interface/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/interface/"/>
-  </url>
-  <url>
-    <loc>https://dentalx-system.ru/en/interface/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/interface/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/interface/"/>
-  </url>
-
-  <!-- About / Architecture -->
-  <url>
-    <loc>https://dentalx-system.ru/ru/about/</loc>
+    <loc>https://dentalx-system.ru/about.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/about/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/about/"/>
   </url>
   <url>
-    <loc>https://dentalx-system.ru/en/about/</loc>
+    <loc>https://dentalx-system.ru/faq.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/about/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/about/"/>
   </url>
-
-  <!-- FAQ -->
-  <url>
-    <loc>https://dentalx-system.ru/ru/faq/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/faq/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/faq/"/>
-  </url>
-  <url>
-    <loc>https://dentalx-system.ru/en/faq/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalx-system.ru/ru/faq/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dentalx-system.ru/en/faq/"/>
-  </url>
-
-  <!-- Legal Documents -->
   <url>
     <loc>https://dentalx-system.ru/privacy.html</loc>
     <lastmod>2026-09-18</lastmod>

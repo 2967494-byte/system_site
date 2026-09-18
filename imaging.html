@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DICOM 3.0, 2D/3D Веб-просмотрщик и Редактор панорам — DentX</title>
+  <meta name="description" content="Полная интеграция с дентальными томографами: импорт DICOM 3.0, мультипланарная реконструкция (MPR), 3D объём и автопостроение панорам ОПТГ прямо в браузере.">
+  <link rel="canonical" href="https://dentalx-system.ru/imaging.html">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+</head>
+<body class="product-body">
+  <div class="product-top-bar">
+    <div class="container-main top-bar-flex">
+      <div class="top-bar-left">
+        <span class="system-indicator pulse"></span>
+        <span>DentX Medical Software • DICOM & 3D Imaging Engine</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="lang-switcher">
+          <a href="imaging.html" class="lang-btn active">RU</a>
+          <a href="en.html" class="lang-btn">EN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="product-header">
+    <div class="container-main header-inner">
+      <a href="index.html" class="brand-link">
+        <img src="images/logo-white.png" alt="DentX System" class="site-logo">
+      </a>
+      <nav class="main-nav-bar">
+        <ul class="nav-links-list">
+          <li><a href="index.html" class="menu-link">Главная</a></li>
+          <li><a href="imaging.html" class="menu-link" style="color:#38BDF8;">DICOM / 2D/3D</a></li>
+          <li><a href="for-doctors.html" class="menu-link">Врачам</a></li>
+          <li><a href="for-centers.html" class="menu-link">Руководителю</a></li>
+          <li><a href="interface.html" class="menu-link">Интерфейс</a></li>
+          <li><a href="faq.html" class="menu-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="header-action-group">
+        <button type="button" class="btn-primary-demo open-demo-modal-btn">Запросить демо</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="subpage-hero-banner">
+      <div class="container-main">
+        <a href="index.html" class="subpage-back-link">← Вернуться на главную</a>
+        <h1>DICOM 3.0 и Веб-визуализация 2D / 3D</h1>
+        <p>Мгновенный импорт исследований с томографа, мультипланарная реконструкция в браузере и автоматическое построение панорам ОПТГ без установки сторонних программ.</p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="container-main">
+        <div class="imaging-duo-grid">
+          <!-- 3D Viewer -->
+          <div class="imaging-duo-card">
+            <div class="idc-image-wrap open-lightbox-btn" data-screen="viewer_3d">
+              <img src="images/3dview.png" alt="2D / 3D Веб-просмотрщик DentX">
+              <div class="idc-zoom-tag">Увеличить ↗</div>
+            </div>
+            <div class="idc-body">
+              <div class="idc-tag">Визуализация срезов</div>
+              <h3>Мультипланарная реконструкция (MPR)</h3>
+              <p>Врач изучает аксиальную, фронтальную и сагиттальную проекции томограммы синхронно. Просмотрщик работает на аппаратном ускорении WebGL прямо в Google Chrome, Safari или Edge на любом компьютере или планшете.</p>
+              <div class="idc-features">
+                <span class="idc-pill">Аксиальный срез</span>
+                <span class="idc-pill">Сагиттальный срез</span>
+                <span class="idc-pill">Корональный срез</span>
+                <span class="idc-pill">3D объём</span>
+                <span class="idc-pill">Плотность HU</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panorama Editor -->
+          <div class="imaging-duo-card">
+            <div class="idc-image-wrap open-lightbox-btn" data-screen="panorama_editor">
+              <img src="images/panorama.png" alt="Редактор панорам DentX">
+              <div class="idc-zoom-tag">Увеличить ↗</div>
+            </div>
+            <div class="idc-body">
+              <div class="idc-tag">Автоматическая ОПТГ</div>
+              <h3>Редактор панорамной реконструкции</h3>
+              <p>Автоматическое вычисление кривой зубного ряда из объёмных данных КЛКТ. Возможность интерактивной коррекции контрольных точек дуги прямо в веб-интерфейсе для нестандартных анатомических клинических случаев.</p>
+              <div class="idc-features">
+                <span class="idc-pill">Автоматическая дуга</span>
+                <span class="idc-pill">Ручная подгонка точек</span>
+                <span class="idc-pill">Толщина слоя</span>
+                <span class="idc-pill">Экспорт панорамы</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 50px; text-align: center;">
+          <button type="button" class="btn-primary-demo open-demo-modal-btn">Запросить демонстрацию вьюера</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="product-footer">
+    <div class="container-main footer-bottom-row">
+      <div>&copy; 2026 DentX System. Все права защищены.</div>
+      <div><a href="index.html" class="legal-link">Главная</a> • <a href="faq.html" class="legal-link">FAQ</a></div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox-modal" aria-hidden="true">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightbox-close-btn">×</button>
+      <div class="lightbox-inner" id="lightbox-display"></div>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="contact-modal-overlay" id="contact-modal" aria-hidden="true">
+    <div class="contact-modal-box">
+      <button type="button" class="contact-modal-close" id="contact-modal-close-btn">×</button>
+      <div class="contact-modal-header">
+        <h3>Запросить демонстрацию 2D/3D</h3>
+        <p>Покажем работу просмотрщика на ваших исследованиях КЛКТ.</p>
+      </div>
+      <form class="contact-modal-form" id="modal-lead-form" data-lead-form data-source="Страница Imaging">
+        <input type="text" name="hp_check" class="honeypot-field" tabindex="-1">
+        <div class="b2b-form-grid-2">
+          <div class="input-group">
+            <label>Имя *</label>
+            <input type="text" name="name" required placeholder="Александр">
+          </div>
+          <div class="input-group">
+            <label>Название центра *</label>
+            <input type="text" name="company" required placeholder="Центр рентгенодиагностики">
+          </div>
+        </div>
+        <div class="b2b-form-grid-2" style="margin-top:12px;">
+          <div class="input-group">
+            <label>Город *</label>
+            <input type="text" name="city" required placeholder="Москва">
+          </div>
+          <div class="input-group">
+            <label>Телефон / WhatsApp *</label>
+            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__">
+          </div>
+        </div>
+        <div class="input-group" style="margin-top:12px;">
+          <label>Email *</label>
+          <input type="email" name="email" required placeholder="alex@center.ru">
+        </div>
+        <div class="modal-submit-row" style="margin-top:16px;">
+          <button type="submit" class="btn-primary-demo" id="modal-submit-btn" style="width:100%; justify-content:center;">Отправить заявку</button>
+        </div>
+      </form>
+      <div class="form-success-box" id="modal-form-success" style="display:none; text-align:center; padding:20px;">
+        <h3 style="color:#FFFFFF;">Заявка принята!</h3>
+        <p style="color:#94A3B8;">Мы свяжемся с вами в ближайшее время.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=5.0"></script>
+</body>
+</html>
