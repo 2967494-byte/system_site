@@ -348,6 +348,12 @@ button, input, select, textarea {
   background: var(--color-primary-light);
 }
 
+.menu-link.active {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  font-weight: 700;
+}
+
 .header-action-group {
   display: flex;
   align-items: center;
@@ -1596,6 +1602,19 @@ button, input, select, textarea {
 .form-success-box {
   text-align: center;
   padding: 30px;
+}
+
+.form-success-box h3 {
+  color: var(--text-heading);
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.form-success-box p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .success-check-badge {
